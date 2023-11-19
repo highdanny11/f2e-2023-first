@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+# The F2E 2023 - 立委競選官網
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ [採用設計稿](https://www.figma.com/file/Kps5KF7P24YZm0jzeTCJuD/2023-TheF2E-%E9%9D%9E%E5%B8%B8%E7%AB%8B%E5%A7%94%E9%99%B3%E8%8B%B1%E6%B8%9D?type=design&node-id=594-525&mode=design&t=XezjxsnwNBbjaecW-0)
 
-Currently, two official plugins are available:
+## 資料夾結構
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+  - assets # 靜態資源放置處
+    - images # 圖片
+    - styles # SCSS 樣式
+  - views
+    - home 首頁 
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 使用技術
+
+ - vite
+ - css
+   - scss
+   - tailwind
+
+## 努力中
+ - 切版中
