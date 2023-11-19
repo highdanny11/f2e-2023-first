@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './wave.scss';
+
+.banner {
+  @apply bg-[url('@/assets/images/banner/banner-wave.svg')];
+  @apply bg-no-repeat bg-center bg-cover;
+  @apply aspect-[192/100] w-full max-w-[1920px] mx-auto;
+  padding-bottom: 10%;
+}
+.banner-wrap {
+  @apply max-w-[1200px] mx-auto w-full;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
