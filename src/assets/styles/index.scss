@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import './wave.scss';
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
 
 .banner {
   @apply bg-[url('@/assets/images/banner/banner-wave.svg')];
