@@ -1,7 +1,7 @@
 // import ReactDOM from 'react-dom'
-import tail from '@/assets/images/footer/tail.svg'
-import turtle from '@/assets/images/footer/turtle.svg'
-import boat from '@/assets/images/footer/boat.svg'
+// import tail from '@/assets/images/footer/tail.svg'
+// import turtle from '@/assets/images/footer/turtle.svg'
+// import boat from '@/assets/images/footer/boat.svg'
 
 function Footer() {
   return(
