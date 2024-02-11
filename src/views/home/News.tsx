@@ -81,7 +81,7 @@ export default function News() {
 										<time className="inline-block text-2xl leading-[140%] mb-2 text-primary">{item.time}</time>
 										<img className="mb-1" src={item.img} alt="圖片" />
 										<h3 className="px-2 text-[20px] leading-[140%] text-primary">{item.time}</h3>
-										<p className="px-2 mb-6 text-base leading-[140%] text-primary min-h-[157px]">{item.article}</p>
+										<p className="px-2 mb-6 text-base leading-[140%] text-primary xl:min-h-[157px] md:min-h-[202px]">{item.article}</p>
 										<button type="button" className="appearance-none border-none outline-none bg-primary hover:bg-opacity-[70%] text-white min-w-[210px] mx-auto py-[10px] rounded-lg block">繼續閱讀</button>
 									</div>
 								</li>
