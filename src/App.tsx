@@ -2,6 +2,7 @@ import Header from './views/Header'
 import Footer from './views/Footer'
 import Home from './views/home/index.tsx'
 import Active from './views/active/index.tsx'
+import Policy from './views/policy/index.tsx'
 import Test from './views/test.tsx'
 import { Routes, Route } from 'react-router-dom'
 // import Banner from './views/home/Banner'
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home />} ></Route>
         <Route path='/home' element={<Test />} ></Route>
         <Route path='/active' element={<Active />}></Route>
+        <Route path='/policy' element={<Policy />}></Route>
       </Routes>
       <Footer />
     </>
