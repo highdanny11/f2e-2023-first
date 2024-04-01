@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} ></Route>
         <Route path='/home' element={<Test />} ></Route>
-        <Route path='/active' element={<Active />}></Route>
+        <Route path='/active/:id' element={<Active />}></Route>
         <Route path='/policy/:id' element={<Policy />}></Route>
       </Routes>
       <ScrollToTop />

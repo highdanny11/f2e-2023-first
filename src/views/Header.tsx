@@ -16,7 +16,7 @@ function Header() {
           </div>
           <ul className="lg:flex items-center text-white hidden">
             <li className='mr-8 last:mr-0'>
-              <Link to="active">最新活動</Link>
+              <Link to="active/1">最新活動</Link>
             </li>
             <li className='mr-8 last:mr-0'>
               <Link to="policy/1">政策議題</Link>

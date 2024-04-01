@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, Link, useActionData } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import PolicyImg from "@/assets/images/policy/policy1.png"
 import PolicyImg1 from '@/assets/images/policy/policy1-1.png'

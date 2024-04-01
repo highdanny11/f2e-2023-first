@@ -68,9 +68,6 @@ function Footer() {
           <p className="text-white order-2 mb-7">服務時間:週一至週五 9:00 - 18:00</p>
           <p className="text-white text-sm mt-7 md:mt-0 order-4">版權聲明：© 2023 陳英渝版權所有</p>
           {img && <img className={img?.className} src={img?.src} alt={img?.className} />}
-          
-          {/* <img className="turle" src={turtle} alt="turtle" /> */}
-          {/* <img className="tail" src={tail} alt="tail" /> */}
         </div>
       </div>
     </footer>
