@@ -36,7 +36,7 @@
   background-repeat: repeat-x;
   animation: l7 1s infinite linear;
 }
-.turle {
+.turtle {
   position: absolute;
   top: 0px;
   left: -20%;
@@ -55,10 +55,10 @@
   animation: shake 6s infinite;
 }
 .boat {
-  width: 209px;
-  height: 209px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   top: -20px;
-  right: -50%;
+  right: 0%;
   animation: ship 3s linear infinite;
 }

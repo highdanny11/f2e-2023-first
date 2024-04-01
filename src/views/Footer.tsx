@@ -1,11 +1,44 @@
-// import ReactDOM from 'react-dom'
-// import tail from '@/assets/images/footer/tail.svg'
-// import turtle from '@/assets/images/footer/turtle.svg'
-// import boat from '@/assets/images/footer/boat.svg'
+import { useLocation } from 'react-router-dom'; 
+import { useEffect, useState } from 'react';
+import tail from '@/assets/images/footer/tail.svg'
+import turtle from '@/assets/images/footer/turtle.svg'
+import boat from '@/assets/images/footer/boat.svg'
+
 
 function Footer() {
+  const specificPage = {
+    policy: {
+      className: 'turtle',
+      src: turtle
+    },
+    active: {
+      className: 'boat',
+      src: boat
+    }
+  }
+  const { pathname } = useLocation();
+  const [ img, setImg ] = useState<null | {className:string, src:string}>(null)
+  
+  useEffect(() => {
+    const data = pathname.split('/')[1]
+    switch(data) {
+      case 'active':
+        setImg({...specificPage.active})
+        break;
+      case 'policy':
+        setImg({...specificPage.policy})
+        break;
+      default:
+        setImg({
+          className: 'tail',
+          src: tail
+        })
+    }
+  }, [pathname])
+
+  
   return(
-    <footer className="pt-20 overflow-hidden">
+    <footer className="pt-[120px] overflow-x-hidden">
       <div className="wave">
         <div className="
           max-w-[768px] mx-auto text-center px-2 flex flex-col
@@ -34,7 +67,8 @@ function Footer() {
           </ul>
           <p className="text-white order-2 mb-7">服務時間:週一至週五 9:00 - 18:00</p>
           <p className="text-white text-sm mt-7 md:mt-0 order-4">版權聲明：© 2023 陳英渝版權所有</p>
-          {/* <img className="boat" src={boat} alt="boat" /> */}
+          {img && <img className={img?.className} src={img?.src} alt={img?.className} />}
+          
           {/* <img className="turle" src={turtle} alt="turtle" /> */}
           {/* <img className="tail" src={tail} alt="tail" /> */}
         </div>
