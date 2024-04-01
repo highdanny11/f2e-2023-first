@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import New1 from '@/assets/images/news/new-1.png';
 
 import SpeechImg from '@/assets/images/active/event-1.jpeg';
-import SpeechImg3 from '@/assets/images/active/event-3.jpeg';
 import SpeechImg4 from '@/assets/images/active/event-4.jpeg';
 import SpeechImg5 from '@/assets/images/active/event-5.jpeg';
 import SpeechImg6 from '@/assets/images/active/event-6.jpeg';
@@ -23,9 +22,19 @@ import ProcessionImg5 from '@/assets/images/active/procession-5.jpeg';
 import ProcessionImg6 from '@/assets/images/active/procession-6.jpeg';
 import ProcessionImg7 from '@/assets/images/active/procession-7.jpeg';
 import ProcessionImg8 from '@/assets/images/active/procession-8.jpeg';
-
 import ProcessionImg13 from '@/assets/images/active/event-13.jpeg';
 
+import BBQImg from '@/assets/images/active/event-3.png';
+import BBQImg1 from '@/assets/images/active/BBQ-1.jpeg';
+import BBQImg2 from '@/assets/images/active/BBQ-2.jpeg';
+import BBQImg3 from '@/assets/images/active/BBQ-3.jpeg';
+import BBQImg4 from '@/assets/images/active/BBQ-4.jpeg';
+import BBQImg5 from '@/assets/images/active/BBQ-5.jpeg';
+import BBQImg6 from '@/assets/images/active/BBQ-6.jpeg';
+import BBQImg7 from '@/assets/images/active/BBQ-7.jpeg';
+import BBQImg8 from '@/assets/images/active/BBQ-8.jpeg';
+import BBQImg9 from '@/assets/images/active/BBQ-9.jpeg';
+import BBQImg10 from '@/assets/images/active/BBQ-10.jpeg';
 
 
 const activeList = [
@@ -48,6 +57,16 @@ const activeList = [
     imgs: [ProcessionImg1, ProcessionImg2, ProcessionImg5, ProcessionImg6],
     time: '2023/12/26',
     defaultText: '街上氣氛真的很棒，從小孩到大人，甚至有些朋友都穿著由義大利知名設計師Sit Down Please所打造的經典龍蝦裝來找我握手，真的太可愛了！這次的活動不僅讓我看到大家的熱情，更加堅定了我推進「海洋友善環境」政策的決心。'
+  },
+  {
+    id: 3,
+    title: '香香的烤魷魚活動！',
+    mainImg: BBQImg,
+    main: '陳英渝與「海洋之愛」的海洋保護單位決定舉辦一個獨特的活動，以唤起人們對海洋的保護意識。他們計畫了一場盛大的「烤魷魚節」，旨在讓參與者體驗美味的海鮮，同時強調保護海洋和海洋生物的重要性。活動當天，一片歡樂的氛圍籠罩著整個海灘。保護單位的成員在沙灘上搭建了簡單的烤架和用來烤海鮮的設備。當地漁夫捐贈了新鮮的魷魚，都是當地可持續捕撈的，以確保不會對海洋生態造成傷害。活動開始後，參與者可以品嚐到美味的烤魷魚。同時，保護單位的成員向人們提供有關海洋保護的資訊，解釋了海洋污染、過度捕撈和海洋生態系統的現狀。他們還舉辦了互動活動，如收拾沙灘上的垃圾和討論可持續漁業的工作坊。當夜幕降臨時，活動進行了一個特別的儀式。參與者們點燃了蠟燭，將它們放在沙灘上，形成一個大大的愛心。這象徵著每個人對海洋的承諾，保護海洋生物和環境。這場「烤魷魚節」不僅讓人們享受美味的食物，還成功地喚起了參與者對海洋保護的關注。參與者離開時，帶走了更多的知識和對行動的決心，並答應將這個重要信息傳遞給他們的家人和朋友。陳英渝和「海洋之愛」保護單位的這個活動成為了一個啟發人心的例子，呼籲人們共同保護海洋和海洋生物，以確保它們的永續存在。',
+    subImg: BBQImg9,
+    imgs: [BBQImg1, BBQImg2, BBQImg6, BBQImg7],
+    time: '2023/12/26',
+    defaultText: '為了推廣海洋生物永續生存的重要，讓更多人一起愛護海洋，我們舉辦了一場前所未有的「烤魷魚活動」！'
   },
 ]
 
