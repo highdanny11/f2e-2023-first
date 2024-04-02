@@ -1,6 +1,21 @@
 import Whale from '@/assets/images/icon/whale.png'
 
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { publicServerSchma } from '@/verify/publicServer'
+
 export default function Service() {
+  const { 
+    register, // state
+    handleSubmit, // function
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(publicServerSchma),
+  })
+
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
   return (
     <section className="mt-16 relative
         md:bg-secondary md:mt-[120px] md:pt-[135px] md:pb-10
@@ -22,13 +37,15 @@ export default function Service() {
         <br className="hidden md:block" />
         請請透過表單留下您的聯絡資訊，由專人與您聯繫，謝謝
       </p>
-      <form className="
-          bg-secondary pt-4 pb-8 px-4 
-            mx-auto
-            max-w-[600px]
-            md:border-solid md:border-[10px] md:border-white
-            md:rounded-tr-[20%] md:rounded-bl-[20%]
-            xl:max-w-[854px]
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="
+        bg-secondary pt-4 pb-8 px-4 
+          mx-auto
+          max-w-[600px]
+          md:border-solid md:border-[10px] md:border-white
+          md:rounded-tr-[20%] md:rounded-bl-[20%]
+          xl:max-w-[854px]
         ">
         <h3 className="text-primary text-center text-[32px] leading-[140%] mb-6">
           民眾服務表單
@@ -41,41 +58,81 @@ export default function Service() {
             <label className="
                 text-2xl leading-[140%] text-primary block mb-2
                 after:inline-block after:content-['*'] after:text-[#F40B0B] after:text-base
-              " htmlFor="">姓名</label>
-            <input type="text" className="
+              "
+              htmlFor="username"
+            >
+              姓名
+              {errors?.username?.message && <span className="text-[#F40B0B] text-sm">{`${errors.username.message}`}</span>}
+            </label>
+            <input
+              id="username"
+              type="text"
+              {...register("username")}
+              className="
                 w-full rounded-lg appearance-none border-none outline-none text-2xl text-primary px-2 py-3
                 xl:w-[416px]
               "/>
           </li>
           <li className="mb-2 md:flex md:justify-between md:items-center xl:mb-4">
-            <label className="
+            <label
+              className="
                 text-2xl leading-[140%] text-primary block mb-2
                 after:inline-block after:content-['*'] after:text-[#F40B0B] after:text-base
-                " htmlFor="">行動電話</label>
-            <input type="tel" className="
+              "
+              htmlFor="phone"
+            >
+              行動電話
+              {errors?.phone?.message && <span className="text-[#F40B0B] text-sm">{`${errors.phone.message}`}</span>}
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              {...register("phone")}
+              className="
                 w-full rounded-lg appearance-none border-none outline-none text-2xl text-primary px-2 py-3
                 xl:w-[416px]
               " />
           </li>
           <li className="mb-2 md:flex md:justify-between md:items-center xl:mb-4">
-            <label className="
+            <label
+              className="
                 text-2xl leading-[140%] text-primary block mb-2
                 after:inline-block after:content-['*'] after:text-[#F40B0B] after:text-base
-              " htmlFor="">電子信箱</label>
-            <input type="email" className="
+              "
+              htmlFor="email"
+            >電子信箱
+              {errors?.email?.message && <span className="text-[#F40B0B] text-sm">{`${errors.email.message}`}</span>}
+            </label>
+            <input
+              id="email"
+              type="email"
+              {...register("email")}
+              className="
                 w-full rounded-lg appearance-none border-none outline-none text-2xl text-primary px-2 py-3
                 xl:w-[416px]
               " />
           </li>
           <li>
-            <label className="
+            <label
+              className="
                 text-2xl leading-[140%] text-primary block mb-2
                 after:inline-block after:content-['*'] after:text-[#F40B0B] after:text-base
-              " htmlFor="">留下您的訊息</label>
-            <textarea className="w-full rounded-lg appearance-none border-none outline-none text-2xl text-primary px-2 py-3" />
+              "
+              htmlFor="message"
+            >留下您的訊息
+              {errors?.message?.message && <span className="text-[#F40B0B] text-sm">{`${errors.message.message}`}</span>}
+            </label>
+            <textarea
+              {...register("message")}
+              id="message"
+              className="w-full rounded-lg appearance-none border-none outline-none text-2xl text-primary px-2 py-3" 
+            />
           </li>
         </ul>
-        <button className="bg-primary text-white w-[196px] mx-auto text-center py-3 rounded-lg block" type="button">
+        <button
+          className="bg-primary text-white w-[196px] mx-auto text-center py-3 rounded-lg block"
+          type="submit"
+        >
           提交
         </button>
       </form>
