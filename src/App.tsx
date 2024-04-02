@@ -4,6 +4,7 @@ import Home from './views/home/index.tsx'
 import Active from './views/active/index.tsx'
 import Policy from './views/policy/index.tsx'
 import Test from './views/test.tsx'
+import { ScrollTop } from '@/component/ScrollTop.tsx'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/active/:id' element={<Active />}></Route>
         <Route path='/policy/:id' element={<Policy />}></Route>
       </Routes>
+      <ScrollTop />
       <ScrollToTop />
       <Footer />
     </>
