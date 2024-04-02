@@ -1,9 +1,17 @@
 import { ChangeEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import Whale from '@/assets/images/icon/whale.png'
 import new1 from '@/assets/images/news/new-1.png'
 import new2 from '@/assets/images/news/new-2.png'
 import new3 from '@/assets/images/news/new-3.png'
+
 export default function News() {
+  const navigate = useNavigate();
+
+  const toActive = (id:number) => {
+    navigate(`/active/${id}`);
+  }
 
   const news = [
     {
@@ -74,7 +82,7 @@ export default function News() {
           "
         >
           {
-            news.map((item) => {
+            news.map((item, index) => {
               return (
                 <li className="w-1/3 px-4" key={item.id}>
                   <div>
@@ -82,7 +90,13 @@ export default function News() {
                     <img className="mb-1" src={item.img} alt="圖片" />
                     <h3 className="px-2 text-[20px] leading-[140%] text-primary">{item.time}</h3>
                     <p className="px-2 mb-6 text-base leading-[140%] text-primary xl:min-h-[157px] md:min-h-[202px]">{item.article}</p>
-                    <button type="button" className="appearance-none border-none outline-none bg-primary hover:bg-opacity-[70%] text-white min-w-[210px] mx-auto py-[10px] rounded-lg block">繼續閱讀</button>
+                    <button
+                      type="button"
+                      className="appearance-none border-none outline-none bg-primary hover:bg-opacity-[70%] text-white min-w-[210px] mx-auto py-[10px] rounded-lg block"
+                      onClick={() => toActive(index + 1)}
+                    >
+                      繼續閱讀
+                    </button>
                   </div>
                 </li>
               )

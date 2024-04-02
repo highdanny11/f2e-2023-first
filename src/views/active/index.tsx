@@ -97,11 +97,6 @@ export default function Active() {
           <li className="md:w-1/2 w-full">
              <div className="gallery">
               {activeData.gallery && activeData.gallery.map((item, index) =>  <img src={item} key={index}  />) }
-              {/* <img src="https://raw.githubusercontent.com/thisWeb1225/IG-posts/main/Reels/35-gallery-slider/1.jpg" />
-              <img src="https://raw.githubusercontent.com/thisWeb1225/IG-posts/main/Reels/35-gallery-slider/2.jpg" />
-              <img src="https://raw.githubusercontent.com/thisWeb1225/IG-posts/main/Reels/35-gallery-slider/3.jpg" />
-              <img src="https://raw.githubusercontent.com/thisWeb1225/IG-posts/main/Reels/35-gallery-slider/4.jpg" />
-              <img src="https://raw.githubusercontent.com/thisWeb1225/IG-posts/main/Reels/35-gallery-slider/5.jpg" /> */}
              </div>
           </li>
         </ul>

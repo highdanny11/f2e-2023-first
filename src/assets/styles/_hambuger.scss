@@ -1,0 +1,58 @@
+.hambuger {
+  @apply lg:hidden w-[50px] h-[50px] flex flex-col justify-between p-2;
+  @apply cursor-pointer relative z-10;
+  span {
+    @apply inline-block bg-white w-full h-1 rounded-sm;
+    transition: all 0.3s;
+  }
+
+  &.active {
+    position: fixed;
+    @apply fixed top-10 right-4;
+    span {
+      &:nth-child(1) {
+        transform: translateY(15px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-15px) rotate(-45deg);
+      }
+    }
+  }
+}
+.menuToggle {
+  background: rgba(29, 50, 96, 1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100%;
+  z-index: 9;
+  padding-top: 124px;
+  transform: translateX(40vw);
+  transition: transform .4s ease-in;
+  @screen lg {
+    display: none !important;
+  }
+  &:hover {
+    background-image: linear-gradient(90deg, #1D3260 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+  }
+  &.active {
+    transform: translateX(0px);
+  }
+  
+  .menu {
+    text-align: center;
+    li {
+      padding: 10px;
+    }
+  }
+  .menu-share {
+    text-align: center;
+    li {
+      padding: 10px;
+    }
+  }
+}

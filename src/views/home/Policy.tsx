@@ -1,9 +1,13 @@
 import { ChangeEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import Whale from '@/assets/images/icon/whale.png'
 import policy1 from '@/assets/images/policy/policy1.png'
 import policy2 from '@/assets/images/policy/policy2.png'
 import policy3 from '@/assets/images/policy/policy3.png'
 export default function Policy() {
+
+  const navigate = useNavigate();
 
   const Policy = [
     {
@@ -35,6 +39,9 @@ export default function Policy() {
     if (e.target?.value) {
       setPolicyValue(e.target.value);
     }
+  }
+  const toPolicy = (id:number) => {
+    navigate(`/policy/${id}`);
   }
   return (
     <section className="
@@ -74,7 +81,7 @@ export default function Policy() {
 					"
         >
           {
-            Policy.map((item) => {
+            Policy.map((item, index) => {
               return (
                 <li className="w-1/3 px-4" key={item.id}>
                   <div>
@@ -82,7 +89,13 @@ export default function Policy() {
                     <img className="mb-1" src={item.img} alt="圖片" />
                     <h3 className="px-2 text-[20px] leading-[140%] text-primary">{item.time}</h3>
                     <p className="px-2 mb-6 text-base leading-[140%] text-primary xl:min-h-[157px] md:min-h-[202px]">{item.article}</p>
-                    <button type="button" className="appearance-none border-none outline-none bg-primary hover:bg-opacity-[70%] text-white min-w-[210px] mx-auto py-[10px] rounded-lg block">繼續閱讀</button>
+                    <button
+                      type="button"
+                      className="appearance-none border-none outline-none bg-primary hover:bg-opacity-[70%] text-white min-w-[210px] mx-auto py-[10px] rounded-lg block"
+                      onClick={() => toPolicy(index + 1)}
+                    >
+                      繼續閱讀
+                    </button>
                   </div>
                 </li>
               )
