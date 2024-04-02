@@ -12,8 +12,8 @@ function Header() {
         ">
           <div className="flex items-center justify-between">
             <Link to="/">
-            <img className="mr-2" src={logo} alt="logo" />
-            <h1>陳英渝</h1>
+              <img className="mr-2" src={logo} alt="logo" />
+              <h1>陳英渝</h1>
             </Link>
           </div>
           <ul className="lg:flex items-center text-white hidden">
@@ -27,7 +27,7 @@ function Header() {
               <a href="#">名眾服務</a>
             </li>
             <li className='mr-8 last:mr-0'>
-              <a href="#">小額捐款</a>
+              <Link to="donate">小額捐款</Link>
             </li>
           </ul>
           <ul className="lg:flex items-center hidden">
