@@ -14,6 +14,7 @@ export default {
     },
     extend: {},
   },
+  safelist: ['lg:order-1', 'lg:order-2', 'lg:order-3', 'lg:order-4', 'lg:order-5', 'lg:order-6', 'lg:order-7', 'lg:order-8', 'lg:order-9', 'lg:order-10'],
   plugins: [],
 }
 

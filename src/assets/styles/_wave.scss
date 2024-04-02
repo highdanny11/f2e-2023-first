@@ -61,4 +61,83 @@
   top: -20px;
   right: 0%;
   animation: ship 3s linear infinite;
+  @screen xl {
+    right: -20%;
+  }
+}
+// from https://codepen.io/thisWeb1225/pen/wvYdmpL
+.gallery > img {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 0.4rem;
+  object-fit: cover;
+}
+
+.gallery {
+  --d: 10s; /* duration */
+  display: grid;
+  width: 50%;
+  margin: 0 auto;
+  @screen md {
+    width: 80%;
+  }
+}
+.gallery > img {
+  grid-area: 1 / 1;
+  width: 100%;
+  aspect-ratio: 1;
+  animation: slide var(--d) infinite;
+  rotate: var(--r);
+}
+.gallery > img:nth-child(1) {
+  animation-delay: calc(0 * var(--d));
+  --r: 10deg;
+}
+.gallery > img:nth-child(2) {
+  animation-delay: calc(-0.2 * var(--d));
+  --r: 12deg;
+}
+.gallery > img:nth-child(3) {
+  animation-delay: calc(-0.4 * var(--d));
+  --r: 20deg;
+}
+.gallery > img:nth-child(4) {
+  animation-delay: calc(-0.6 * var(--d));
+  --r: -8deg;
+}
+.gallery > img:nth-child(5) {
+  animation-delay: calc(-0.8 * var(--d));
+  --r: -14deg;
+}
+
+/* 
+      n = 5 number of images
+      0.1
+      50 / n = 10
+      50 / n + 0.1 = 10.1
+      100 / n = 20
+      100 - 100 / n = 80
+      100 - 100 / n + 0.1 = 80.1
+      */
+
+@keyframes slide {
+  0.1% {
+    z-index: 4;
+  }
+  10% {
+    translate: 120%;
+    z-index: 4;
+  }
+  10.1% {
+    translate: 120%;
+    z-index: -3;
+  }
+  20%,
+  80% {
+    translate: 0%;
+    z-index: -3;
+  }
+  80.1% {
+    translate: 0%;
+    z-index: 3;
+  }
 }
