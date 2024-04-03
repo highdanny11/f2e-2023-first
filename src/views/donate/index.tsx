@@ -8,13 +8,12 @@ import Product3 from '@/assets/images/donate/product-3.jpg'
 import AccrodingItem from './AccrodingItem'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from 'swiper/modules';
 
 import "swiper/css";
 import 'swiper/css/pagination';
 
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 
 export default function Donate() {
   const questions = [
@@ -37,6 +36,9 @@ export default function Donate() {
   const [ accrodings, setAccrodings ] = useState(questions)
   const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(1)
+  const [showModal, setShowModal] = useState(false)
+  const [donate, setDonate] = useState<number | string>('')
+
 
   const slideTo = (index:number) => {
     swiperRef.current.swiper.slideTo(index)
@@ -63,7 +65,6 @@ export default function Donate() {
         小額捐款
         <img className="md:hidden" src={Whale} alt="whale" width="87" />
       </h2>
-
       <div className="
         px-4 overflow-hidden mx-auto md:max-w-[900px] xl:max-w-[1024px] 2xl:px-0 2xl:max-w-[1296px]
       ">
@@ -78,12 +79,12 @@ export default function Donate() {
           grid gap-x-2 gap-y-6 grid-cols-2 grid-rows-3 mt-6
           md:grid-cols-3 md:grid-rows-2
         ">
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$300</button></li>
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$1,000</button></li>
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$10,000</button></li>
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$30,000</button></li>
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$50,000</button></li>
-          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" type="button">$100,000</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(300)}} type="button">$300</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(1000)}} type="button">$1,000</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(10000)}} type="button">$10,000</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(30000)}} type="button">$30,000</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(50000)}} type="button">$50,000</button></li>
+          <li><button className="appearance-none border-primary border-[2px] border-solid outline-none hover:bg-primary text-primary hover:text-white w-full mx-auto py-5 rounded-lg block duration-300 ease-out text-[32px] leading-[140%]" onClick={() => {setDonate(10000)}} type="button">$100,000</button></li>
         </ul>
         <div className="
           flex flex-wrap w-full mt-6 gap-6
@@ -91,6 +92,8 @@ export default function Donate() {
         ">
           <input
             type="number"
+            value={donate}
+            onChange={(e) => setDonate(Number(e.target.value))}
             placeholder="請自行輸入金額"
             className="
               w-full rounded-lg
@@ -102,12 +105,15 @@ export default function Donate() {
             " />
           <button
             type="button"
+            disabled={!donate}
+            onClick={() => setShowModal(true)}
             className="
               appearance-none border-none outline-none
             bg-primary hover:bg-opacity-[70%]
               text-[32px] leading-[140%]
             text-white py-[33px] rounded-lg block
               flex-grow
+              disabled:bg-[#D9D9D9] disabled:text-[#BDBDBD] disabled:cursor-not-allowed
             ">
             前往捐款
           </button>
@@ -141,6 +147,7 @@ export default function Donate() {
           </ul>
         </div>
       </div>
+      {/* 輪播 */}
       <div className="px-4 mt-8 md:px-0">
         <h2 className="text-center text-primary mb-8 text-[32px] leading-[46px]">
           渝渝小物
@@ -190,6 +197,63 @@ export default function Donate() {
         </div>
         
       </div>
+      {showModal && 
+        <div className="
+          fixed inset-0 bg-[rgba(0,0,0,0.4)]
+          w-full h-full z-20
+          flex justify-center items-center px-4
+        ">
+          <div className='max-w-[684px] relative w-full bg-[#ECF5FC] rounded-[32px] p-4 md:px-6 md:py-10 md:pb-8'>
+            <h3 className="text-center text-primary text-2xl leading-[34px] mb-4 xl:mb-8">政治獻金捐贈規定</h3>
+            <div className="border border-primary border-solid p-8 rounded-[32px] text-primary md:leading-[30px]">
+              <ul>
+                <li>1.政治獻金捐贈者必須是合法國民或合法居住在本國境內的自然人。</li>
+                <li>
+                  2.對同一（組）擬參選人每年捐贈總額，不得超過下列金額：
+                  <ul className="pl-3">
+                    <li>一、個人：新臺幣三十萬元。</li>
+                    <li>二、營利事業：新臺幣一百萬元。</li>
+                    <li>三、人民團體：新臺幣五十萬元。</li>
+                  </ul>
+                  <p className="pl-2">對不同擬參選人每年捐贈總額，合計不得超過下列金額：</p>
+                  <ul className="pl-3">
+                    <li>一、個人：新臺幣三十萬元。</li>
+                    <li>二、營利事業：新臺幣二百萬元。</li>
+                    <li>三、人民團體：新臺幣一百萬元。</li>
+                  </ul>
+                </li>
+                <li>3.個人捐款者在報稅時，可以將捐款金額列為列舉扣除額，最高抵稅金額不得超過其綜合所得總額的20%。</li>
+                <li>4.了解更多規定請參閱政治獻金法。</li>
+              </ul>
+            </div>
+            <div className="text-center mt-6">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowModal(false)
+                }}
+                className="
+                  rounded-xl bg-primary hover:bg-opacity-40 inline-block
+                  text-white text-2xl leading-[50pxs] py-3 px-6 max-w-[416px] w-full
+                ">
+                確定
+              </button>
+            </div>
+            <a href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                setShowModal(false)
+              }}
+              className="
+                md:text-[40px] md:top-10 md:right-8
+                text-2xl leading-none top-5 right-5 absolute
+                text-primary
+              ">
+            <i className="bi bi-x-circle"></i>
+            </a>
+          </div>
+        </div>
+      }
       
     </section>
   )
