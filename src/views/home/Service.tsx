@@ -17,7 +17,9 @@ export default function Service() {
     console.log(data)
   }
   return (
-    <section className="mt-16 relative
+    <section
+      id="service"
+      className="mt-16 relative
         md:bg-secondary md:mt-[120px] md:pt-[135px] md:pb-10
         xl:mt-[320px] xl:max-w-[1294px] mx-auto md:rounded-tr-[20%] md:rounded-bl-[20%]
         2xl:mt-[160px]

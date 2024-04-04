@@ -1,9 +1,28 @@
 import logo from '@/assets/images/header/logo.svg'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function Header() {
+  const { pathname } = useLocation()
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false)
+
+  const scrllToServer = async() => {
+    if (pathname === '/') {
+      scrollTo('service')
+    }else {
+      navigate('/');
+      // 當下沒有想到比較好的方法，所以用setTimeout來解決
+      setTimeout(() => {
+        scrollTo('service')
+      }, 1);
+    }
+  }
+  const scrollTo = (id:string) => {
+    const serverDom = document.getElementById(id)
+    const serverTop = serverDom?.getBoundingClientRect().top
+    window.scrollBy({ top: serverTop || 0, behavior: 'smooth'})
+  }
   return(
     <>
       <header className="bg-[linear-gradient(90deg,#1D3260_0%,#a2b6df_100%,#6b8cce_100%,#a2b6df_100%)] py-[10px] relative z-10">
@@ -24,7 +43,10 @@ function Header() {
               <Link to="policy/1">政策議題</Link>
             </li>
             <li className='mr-8 last:mr-0'>
-              <a href="#">名眾服務</a>
+              <a href="#" onClick={(e) => {
+                e.preventDefault()
+                scrllToServer()
+              }}>名眾服務</a>
             </li>
             <li className='mr-8 last:mr-0'>
               <Link to="donate">小額捐款</Link>
