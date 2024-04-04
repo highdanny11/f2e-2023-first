@@ -8,12 +8,13 @@ import Product3 from '@/assets/images/donate/product-3.jpg'
 import AccrodingItem from './AccrodingItem'
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
 
 import "swiper/css";
 import 'swiper/css/pagination';
 
 
-import { useState, useRef, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Donate() {
   const questions = [
@@ -34,20 +35,23 @@ export default function Donate() {
     },
   ]
   const [ accrodings, setAccrodings ] = useState(questions)
-  const swiperRef = useRef(null)
+  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
   const [activeIndex, setActiveIndex] = useState(1)
   const [showModal, setShowModal] = useState(false)
   const [donate, setDonate] = useState<number | string>('')
 
-
   const slideTo = (index:number) => {
-    swiperRef.current.swiper.slideTo(index)
+    if (!swiper) return
+    swiper.slideTo(index)
     setActiveIndex(index)
   }
 
   useEffect(() => {
-    swiperRef.current.swiper.activeIndex = activeIndex
-  }, [swiperRef])
+    if (swiper) {
+      swiper.activeIndex = activeIndex
+    }
+  }, [swiper])
+
 
   return (
     <section className="
@@ -153,7 +157,7 @@ export default function Donate() {
           渝渝小物
         </h2>
         <Swiper
-          ref={swiperRef}
+          onSwiper={setSwiper}
           className="mySwiper"
           centeredSlides={true}
           breakpoints={{
