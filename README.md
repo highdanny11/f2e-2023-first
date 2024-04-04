@@ -10,6 +10,11 @@
     - styles # SCSS 樣式
   - views
     - home 首頁 
+    - donate 小額捐款
+    - policy 政策議題
+    - active 最新活動
+  - component
+    - ScrollTop 置頂元件
 ```
 
 ## 使用技術
@@ -18,6 +23,8 @@
  - css
    - scss
    - tailwind
+ - js
+   - zod.js
+   - swiper.js
+   - react-hook-form.js
 
-## 努力中
- - 切版中
